@@ -1,9 +1,11 @@
-/* Custom base styles */
 body {
     font-family: 'Inter', sans-serif;
 }
 .font-lora {
     font-family: 'Lora', serif;
+}
+html {
+    scroll-behavior: smooth;
 }
 .hero-section {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero_cover.webp');
@@ -22,4 +24,135 @@ header {
 
 .cta-parallax-bg {
     background-image: url('images/cta-background.webp');
+}
+
+.btn-services {
+  /* This display property is needed for self-start to work */
+  display: inline-block;
+  
+  /* Color: White text, Teal background */
+  background-color: #0d9488; /* This is teal-600 */
+  color: white;
+  
+  /* Sizing & Spacing */
+  padding-top: 0.75rem;    /* py-3 */
+  padding-bottom: 0.75rem; /* py-3 */
+  padding-left: 2rem;      /* px-8 */
+  padding-right: 2rem;     /* px-8 */
+  border-radius: 0.5rem;   /* rounded-lg */
+  font-weight: 700;        /* font-bold */
+  align-self: flex-start;  /* self-start */
+  
+  /* Transition */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-services:hover {
+  /* Hover: White background, Teal text */
+  background-color: white;
+  color: #0d9488; /* This is teal-600 */
+}
+
+/* For the main Call-to-Action buttons */
+.btn-primary {
+  /* Default: Teal background, White text */
+  background-color: #0d9488; /* This is teal-600 */
+  color: white;
+  font-weight: 700; /* font-bold */
+  padding-top: 0.75rem;    /* py-3 */
+  padding-bottom: 0.75rem; /* py-3 */
+  padding-left: 2rem;      /* px-8 */
+  padding-right: 2rem;     /* px-8 */
+  border-radius: 0.5rem;   /* rounded-lg */
+  font-size: 1.125rem;     /* text-lg */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  border: 2px solid transparent; /* Add a transparent border to prevent "jumps" on hover */
+}
+
+.btn-primary:hover {
+  /* Hover: White background, Teal text, Teal border */
+  background-color: white;
+  color: #0d9488; /* This is teal-600 */
+  border-color: #0d9488; /* Add a border matching the teal color */
+}
+
+/* For the Contact Us button within the CTA section */
+.btn-secondary {
+  /* Default: Dark Gray background, White text */
+  background-color: #1f2937; /* This is gray-800 */
+  color: white;
+  font-weight: 700; /* font-bold */
+  padding-top: 0.75rem;    /* py-3 */
+  padding-bottom: 0.75rem; /* py-3 */
+  padding-left: 2rem;      /* px-8 */
+  padding-right: 2rem;     /* px-8 */
+  border-radius: 0.5rem;   /* rounded-lg */
+  font-size: 1.125rem;     /* text-lg */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  border: 2px solid transparent; /* Add a transparent border to prevent "jumps" on hover */
+}
+
+.btn-secondary:hover {
+  /* Hover: Even Darker Gray background, Teal text, Teal border */
+  background-color: #111827; /* This is gray-900 */
+  color: #0d9488; /* This is teal-600 */
+  border-color: #0d9488; /* Add a border matching the teal color */
+}
+
+/* Gallery Image Hover Effect */
+.gallery-item {
+  position: relative;
+  overflow: hidden; /* Ensures the zoom effect doesn't spill out */
+  display: block; /* Make sure the anchor tag behaves like a block for sizing */
+}
+
+.gallery-item img {
+  transition: transform 0.3s ease-in-out; /* Smooth transition for the image */
+}
+
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Dark shade overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none; /* Allows clicks to pass through to the image below if needed */
+  z-index: 1; /* Ensure overlay is above the image */
+  border-radius: 0.5rem; /* Match rounded corners of the image */
+}
+
+.gallery-item::after {
+  content: '+';
+  font-family: Arial, sans-serif; /* Or any font you prefer for the plus sign */
+  font-size: 3rem; /* Large plus sign */
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5); /* Start small and centered */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  pointer-events: none; /* Allows clicks to pass through */
+  z-index: 2; /* Ensure plus sign is above the overlay */
+}
+
+.gallery-item:hover::before {
+  opacity: 1; /* Show the overlay on hover */
+}
+
+.gallery-item:hover::after {
+  opacity: 1; /* Show the plus sign on hover */
+  transform: translate(-50%, -50%) scale(1); /* Scale up to normal size */
+}
+
+/* Force GLightbox navigation arrows to be visible on mobile */
+.glightbox-touch .gnext,
+.glightbox-touch .gprev {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }

@@ -223,3 +223,36 @@ header {
   from {top: -300px; opacity: 0}
   to {top: 0; opacity: 1}
 }
+
+/* Add this to your styles.css */
+
+.rotating-gallery-item {
+    position: relative;
+    overflow: hidden;
+    height: 100%; /* Ensure it takes up the full height of its grid cell */
+    width: 100%;
+    border-radius: 0.5rem; /* Match rounded corners of static images */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Match shadow-md */
+}
+
+.rotating-gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* All images start hidden */
+    transition: opacity 1s ease-in-out; /* Smooth fade effect */
+}
+
+/* This class will be added by JavaScript to the currently active image */
+.rotating-gallery-item img.active-slide {
+    opacity: 1; /* Make the active image visible */
+}
+
+/* Inherit existing gallery item hover effects */
+.rotating-gallery-item.gallery-item::before,
+.rotating-gallery-item.gallery-item::after {
+    border-radius: 0.5rem; /* Ensure overlay and plus sign also have rounded corners */
+}
